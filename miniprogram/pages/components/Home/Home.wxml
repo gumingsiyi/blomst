@@ -1,2 +1,6 @@
 <!--pages/components/Home/Home.wxml-->
 <text>pages/components/Home/Home.wxml</text>
+<view>
+  123123
+  <slot></slot>
+</view>
