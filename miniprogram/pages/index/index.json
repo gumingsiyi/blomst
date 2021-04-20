@@ -9,6 +9,6 @@
     "van-tabs": "@vant/weapp/tabs/index",
     "van-tabbar": "@vant/weapp/tabbar/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
-    "component_home": "../components/Home"
+    "component_home": "../components/Home/Home"
   }
 }
