@@ -7,6 +7,18 @@ page {
   justify-content: flex-start;
 }
 
+.background-class {
+  width: 100%
+}
+.placeholder-top-view {
+  width: 100%;
+  height: 90rpx;
+}
+.placeholder-bottom-view {
+  width: 100%;
+  height: 150rpx;
+}
+
 .userinfo, .uploader, .tunnel {
   margin-top: 40rpx;
   height: 140rpx;

@@ -13,7 +13,27 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
-  }
+    this.globalData = {
+      pic_path : "cloud://xycloud-8gfk4lk7057bd117.7879-xycloud-8gfk4lk7057bd117-1305591493/pic/",
+      search_info: {
+        detail: "",
+        max_price: 9999,
+        min_price:0
+      }
+    }
+  },
+  databaseCommand: function(dbname, detail="",min_price=0, max_price=9999) {
+    const db = wx.cloud.database()
+    const _ = db.command
+    return db.collection(dbname).where(_.or([
+      {
+        name: new RegExp(detail, "i")
+      },
+      {
+        desc:new RegExp(detail, "i")
+      }
+    ]).and([{
+      price: _.gt(min_price).lt(max_price)
+    }]))
+}
 })

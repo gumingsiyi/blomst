@@ -1,11 +1,22 @@
 <!--pages/components/Home/Home.wxml-->
 <view class="background-view" >
-      <van-card
-        num="10"
-        price="78.00"
-        desc="复古红雾面妆感好显白"
-        title="3CE唇釉change mode"
-        thumb="{{ 'cloud://xycloud-8gfk4lk7057bd117.7879-xycloud-8gfk4lk7057bd117-1305591493/pic/WechatIMGc4b3150441efe2026b1a11f08e9698c3.jpeg' }}"
-      />
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词"
+    shape="round"
+    show-action
+    bind:search="onSearch"
+    bind:cancel="onCancel"
+    class="search-view"
+  />
+  <view class='placeholder-top-view'></view>
+  <van-card
+    wx:for="{{p_list}}"
+    wx:key="id"
+    num="{{item.num}}"
+    price="{{item.price}}"
+    desc="{{item.desc}}"
+    title="{{item.name}}"
+    thumb="{{ pic_path+item.id+'/1.jpeg' }}"
+  />
+  <view class='placeholder-bottom-view'></view>
   <slot></slot>
 </view>
