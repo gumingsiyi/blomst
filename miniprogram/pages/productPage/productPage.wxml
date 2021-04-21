@@ -1,0 +1,3 @@
+<!--miniprogram/pages/productPage/productPage.wxml-->
+<text>{{ production_info.name }}</text>
+

@@ -96,7 +96,7 @@ Component({
     },
     onFilterCancel() {
       const that = this
-      app.databaseCommand('productions', app.globalData.search_info.detail).get({
+      app.getProductions('productions', app.globalData.search_info.detail).get({
         success: function(res) {
           console.log(res.data)
           that.setData({
@@ -106,6 +106,12 @@ Component({
       })
       this.setData({
         show: false
+      })
+    },
+    onClickCard(event) {
+      //console.log(event.currentTarget.id)
+      wx.navigateTo({
+        url: '../productPage/productPage?id='+event.currentTarget.id
       })
     }
   },
