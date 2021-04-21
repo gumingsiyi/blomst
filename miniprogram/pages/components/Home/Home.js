@@ -14,7 +14,27 @@ Component({
    */
   data: {
     pic_path: app.globalData.pic_path,
-    value: ""
+    value: "",
+    show: false,
+    actions: [
+      {
+        name:"0-100",
+        min:0,
+        max:100
+      }, {
+        name:"100-200",
+        min:100,
+        max:200
+      }, {
+        name:"200-500",
+        min:200,
+        max:500
+      }, {
+        name:"500+",
+        min:500,
+        max:9999
+      }
+    ]
   },
 
   /**
@@ -50,7 +70,43 @@ Component({
             value: detail
           })
         }
-    })
+      })
+    },
+    onFilter() {
+      this.setData({
+        show: !this.data.show
+      })
+    },
+    onFilterClose() {
+      this.setData({
+        show: false
+      })
+    },
+    onSelect({ detail }) {
+      const that = this
+      console.log(detail)
+      app.databaseCommand('productions', app.globalData.search_info.detail,detail.min,detail.max).get({
+        success: function(res) {
+          console.log(res.data)
+          that.setData({
+            p_list: res.data
+          })
+        }
+      })
+    },
+    onFilterCancel() {
+      const that = this
+      app.databaseCommand('productions', app.globalData.search_info.detail).get({
+        success: function(res) {
+          console.log(res.data)
+          that.setData({
+            p_list: res.data
+          })
+        }
+      })
+      this.setData({
+        show: false
+      })
     }
   },
 

@@ -25,12 +25,14 @@ App({
   databaseCommand: function(dbname, detail="",min_price=0, max_price=9999) {
     const db = wx.cloud.database()
     const _ = db.command
+    detail = detail.replace(" ","")
+    console.log(detail)
     return db.collection(dbname).where(_.or([
       {
         name: new RegExp(detail, "i")
       },
       {
-        desc:new RegExp(detail, "i")
+        desc: new RegExp(detail, "i")
       }
     ]).and([{
       price: _.gt(min_price).lt(max_price)

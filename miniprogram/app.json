@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/components/Home/Home"
+    "pages/components/Home/Home",
+    "pages/components/Book/Book",
+    "pages/components/QA/Question"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

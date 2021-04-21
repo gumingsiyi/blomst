@@ -1,11 +1,12 @@
 <!--pages/components/Home/Home.wxml-->
 <view class="background-view" >
-  <van-search value="{{ value }}" placeholder="请输入搜索关键词"
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词" class="search-view"
     shape="round"
     show-action
+    action-text="筛选"
     bind:search="onSearch"
-    bind:cancel="onCancel"
-    class="search-view"
+    bind:cancel="onFilter"
+    bind:clear="onCancel"
   />
   <view class='placeholder-top-view'></view>
   <van-card
@@ -16,6 +17,14 @@
     desc="{{item.desc}}"
     title="{{item.name}}"
     thumb="{{ pic_path+item.id+'/1.jpeg' }}"
+  />
+  <van-action-sheet
+    show="{{ show }}"
+    actions="{{ actions }}"
+    cancel-text="取消"
+    bind:close="onFilterClose"
+    bind:select="onSelect"
+    bind:cancel="onFilterCancel"
   />
   <view class='placeholder-bottom-view'></view>
   <slot></slot>

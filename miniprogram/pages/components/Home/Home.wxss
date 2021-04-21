@@ -5,6 +5,15 @@
 .search-view{
   width: 100%;
   position: fixed;
+  z-index: 998;
+}
+
+.button-view{
+  position: fixed;
+  width: 13%;
+  height: 100%;
+  left: 86%;
+  top: 85%;
   z-index: 999;
 }
 
