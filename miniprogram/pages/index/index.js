@@ -7,13 +7,12 @@ Page({
   },
   onLoad: function() {
     var that = this
-    app.databaseCommand('productions').get({
+    app.getProductions('productions').get({
       success: function(res) {
         console.log(res.data)
         that.setData({
           product_list: res.data
         })
-        
       }
     })
   },

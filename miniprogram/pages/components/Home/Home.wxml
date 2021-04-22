@@ -10,8 +10,11 @@
   />
   <view class='placeholder-top-view'></view>
   <van-card
+    bindtap="onClickCard"
+    lazy-load	
     wx:for="{{p_list}}"
     wx:key="id"
+    id="{{item.id}}"
     num="{{item.num}}"
     price="{{item.price}}"
     desc="{{item.desc}}"

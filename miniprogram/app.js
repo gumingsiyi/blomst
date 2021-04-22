@@ -22,7 +22,7 @@ App({
       }
     }
   },
-  databaseCommand: function(dbname, detail="",min_price=0, max_price=9999) {
+  getProductions: function(dbname, detail="",min_price=0, max_price=9999) {
     const db = wx.cloud.database()
     const _ = db.command
     detail = detail.replace(" ","")
@@ -37,5 +37,11 @@ App({
     ]).and([{
       price: _.gt(min_price).lt(max_price)
     }]))
-}
+  },
+  getOneProduction: function(dbname, id) {
+    const db = wx.cloud.database()
+    return db.collection(dbname).where({
+      id:parseInt(id)
+    })
+  }
 })
