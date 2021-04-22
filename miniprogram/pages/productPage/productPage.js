@@ -6,6 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pic_path: app.globalData.pic_path,
+    pics: Array,
+    show: false
   },
 
   /**
@@ -15,8 +18,16 @@ Page({
     const that = this
     app.getOneProduction("productions", options.id).get({
       success: function(res) {
-        console.log(res.data)
+        res.data[0].name = res.data[0].name.toUpperCase()
+        res.data[0].detail_desc = res.data[0].detail_desc.replace(/\\n/g, "\n")
+        var pic_array = []
+        console.log(res.data[0].pic_num)
+        for(var i=1; i <= res.data[0].pic_num; i++) {
+          pic_array.push(i)
+        }
+        console.log(pic_array)
         that.setData({
+          pics: pic_array,
           production_info:res.data[0]
         })
       }
@@ -70,5 +81,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onClickShow() {
+    this.setData({ show: true });
+  },
+
+  onClickHide() {
+    this.setData({ show: false });
   }
 })

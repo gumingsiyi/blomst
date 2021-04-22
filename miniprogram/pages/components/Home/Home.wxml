@@ -4,6 +4,8 @@
     shape="round"
     show-action
     action-text="筛选"
+    background="#D8EBE6"
+    right-icon="filter-o"
     bind:search="onSearch"
     bind:cancel="onFilter"
     bind:clear="onCancel"

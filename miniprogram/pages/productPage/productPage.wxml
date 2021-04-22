@@ -1,3 +1,21 @@
 <!--miniprogram/pages/productPage/productPage.wxml-->
-<text>{{ production_info.name }}</text>
 
+<swiper indicator-dots="true" class="swiper-view">
+    <swiper-item class="swiper-view" wx:for="{{ pics }}">
+      <image class="swiper-view" mode="heightFix"  src="{{pic_path+production_info.id+'/'+ item +'.jpeg'}}"></image>
+      <view style="background-color: red; height: 600rpx"></view>
+    </swiper-item>
+</swiper>
+<view class="container">
+  <view class="title-h1-view">{{ production_info.name }}</view>
+  <text class="text-view">{{ production_info.detail_desc }}</text>
+  <van-button block class="button-view" color="#D8EBE6" bind:click="onClickShow">
+    <view class="title-h2-view">联系我的微信</view>
+  </van-button>
+</view>
+
+<van-overlay show="{{ show }}" bind:click="onClickHide" >
+  <view class="wrapper">
+    <image mode="widthFix" style="width:90%" src='cloud://xycloud-8gfk4lk7057bd117.7879-xycloud-8gfk4lk7057bd117-1305591493/BLOMSTQR.png'></image>
+  </view>
+</van-overlay>
