@@ -19,7 +19,7 @@ Page({
     app.getOneProduction("productions", options.id).get({
       success: function(res) {
         res.data[0].name = res.data[0].name.toUpperCase()
-        res.data[0].detail_desc = res.data[0].detail_desc.replace(/\\n/g, "\n")
+        res.data[0].detail_desc = res.data[0].detail_desc.replace(/\\n/g, "\n\n")
         var pic_array = []
         console.log(res.data[0].pic_num)
         for(var i=1; i <= res.data[0].pic_num; i++) {

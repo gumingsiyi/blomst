@@ -2,7 +2,7 @@
 .swiper-view{
   height: 500rpx;
   text-align: center;
-  background: black;
+  background: #D8EBE6;
 }
 
 .title-h1-view{
